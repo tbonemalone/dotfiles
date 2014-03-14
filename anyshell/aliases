@@ -1,0 +1,25 @@
+# Navigation and directory listing
+alias cwd='pwd'
+alias ..='cd ..'
+alias ...='cd .. ; cd ..'
+alias ll='ls -hl'
+alias l='ls -hl'
+alias la='ls -ah'
+alias lla='ls -lah'
+alias lt='ls -th'
+alias llt='ls -lth'
+alias q='exit'
+
+#Misc
+alias grep='grep -i'  # Case insensitive grep
+alias grep='grep --color=always'
+alias f='find . -iname'
+alias pyserver='python -m SimpleHTTPServer 6789'
+
+# Shows most used commands, cool script I got this from: http://lifehacker.com/software/how-to/turbocharge-your-terminal-274317.php
+alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
+
+#Git
+alias glo='git log --oneline'
+alias gg='git grep'
+alias ls='ls -ap'

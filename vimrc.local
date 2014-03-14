@@ -1,0 +1,95 @@
+" This compliments Square's Maximum Awesome VIM setup
+" https://github.com/square/maximum-awesome
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey40
+set hlsearch "hilight search matches
+set shiftround " When at 3 spaces and hit >> go to 4 not 5
+set nowrap " god damn line wrapping
+set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
+
+nnoremap :Q :qall
+
+"Press space to toggle highlight on/off, and show current value
+nnoremap <Space> :set hlsearch! hlsearch?<CR>
+
+"Switch between the last two files
+nnoremap <leader><leader> <c-^>
+
+"Windows and splits
+" Open new vertical split
+nnoremap <leader>w <C-w>v<C-w>l
+
+" keyboard shortcuts
+inoremap jj <ESC>
+
+" NOTE: Don't forget to add Bundle 'bling/vim-airline' to .vimrc.bundles.local
+" fonts for vim-airline
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+" use old vim-powerline symbols
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
+
+" set airline theme
+let g:airline_theme='powerlineish'
+
+" remove pause caused by vim-airline when exiting insert mode
+:set ttimeoutlen=50
+
+let g:airline_section_x=''
+let g:airline_section_y=''
+
+" don't duplicate mode display
+set noshowmode
+" gui settings
+if (&t_Co == 256 || has('gui_running'))
+  if ($TERM_PROGRAM == 'iTerm.app')
+    colorscheme solarized
+  else
+    colorscheme desert
+  endif
+endif
+
+" Disambiguate ,a & ,t from the Align plugin, making them fast again.
+"
+" This section is here to prevent AlignMaps from adding a bunch of mappings
+" that interfere with the very-common ,a and ,t mappings. This will get run
+" at every startup to remove the AlignMaps for the *next* vim startup.
+"
+" If you do want the AlignMaps mappings, remove this section, remove
+" ~/.vim/bundle/Align, and re-run rake in maximum-awesome.
+function! s:RemoveConflictingAlignMaps()
+  if exists("g:loaded_AlignMapsPlugin")
+    AlignMapsClean
+  endif
+endfunction
+command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
+silent! autocmd VimEnter * RemoveConflictingAlignMaps
+
+" Search in project/directory
+nnoremap <leader>/ :Ag<Space>
+
+" Search current word in project/directory
+" With or without word boundaries
+function SearchInProject()
+  let word = expand("<cword>")
+  let @/=word
+  set hls
+  exec "Ag " . word
+endfunction
+
+function SearchWordInProject()
+  let word = expand("<cword>")
+  let @/='\<' . word . '\>'
+  set hls
+  exec "Ag '\\b" . word . "\\b'"
+endfunction
+
+nnoremap <leader>f :call SearchInProject()<CR>
+nnoremap <leader>F :call SearchWordInProject()<CR>
