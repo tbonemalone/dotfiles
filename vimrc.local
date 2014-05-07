@@ -19,6 +19,11 @@ nnoremap <leader><leader> <c-^>
 " Open new vertical split
 nnoremap <leader>w <C-w>v<C-w>l
 
+" Toggle colorcolumn
+" Not great but good for now
+nnoremap <leader>cc :set colorcolumn=80<CR>
+nnoremap <leader>ncc :set colorcolumn=0<CR>
+
 " keyboard shortcuts
 inoremap jj <ESC>
 
