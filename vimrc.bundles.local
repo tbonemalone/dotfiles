@@ -1,2 +1,3 @@
 Bundle 'bling/vim-airline'
 Bundle 'rking/ag.vim'
+Bundle 'moll/vim-bbye'

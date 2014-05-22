@@ -19,6 +19,9 @@ nnoremap <leader><leader> <c-^>
 " Open new vertical split
 nnoremap <leader>w <C-w>v<C-w>l
 
+" Toggle Bbye
+nnoremap<leader>q :Bdelete<CR>
+
 " Toggle colorcolumn
 " Not great but good for now
 nnoremap <leader>cc :set colorcolumn=80<CR>
