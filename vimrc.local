@@ -7,6 +7,9 @@ set shiftround " When at 3 spaces and hit >> go to 4 not 5
 set nowrap " god damn line wrapping
 set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
 
+set rtp+=/usr/local/opt/fzf
+nnoremap <leader>t :FZF<CR>
+
 nnoremap :Q :qall
 
 "Press space to toggle highlight on/off, and show current value
@@ -79,6 +82,3 @@ function! s:RemoveConflictingAlignMaps()
 endfunction
 command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
 silent! autocmd VimEnter * RemoveConflictingAlignMaps
-
-" Search in project/directory
-nnoremap <leader>/ :Ag<Space>
