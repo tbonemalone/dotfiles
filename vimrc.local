@@ -30,9 +30,6 @@ nnoremap<leader>q :Bdelete<CR>
 nnoremap <leader>cc :set colorcolumn=80<CR>
 nnoremap <leader>ncc :set colorcolumn=0<CR>
 
-" keyboard shortcuts
-inoremap jj <ESC>
-
 " NOTE: Don't forget to add Bundle 'bling/vim-airline' to .vimrc.bundles.local
 " fonts for vim-airline
 if !exists('g:airline_symbols')
