@@ -2,5 +2,7 @@
 :set background=dark
 :let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
+source ~/.vimrc
+
 map <leader>T :terminal<CR>
 tnoremap <Esc> <C-\><C-n><leader>q<CR>

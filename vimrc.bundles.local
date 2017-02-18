@@ -1,6 +1,5 @@
 Bundle 'bling/vim-airline'
-Bundle 'rking/ag.vim'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'moll/vim-bbye'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'junegunn/fzf'
-Bundle 'slim-template/vim-slim'
